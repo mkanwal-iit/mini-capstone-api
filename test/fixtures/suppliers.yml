@@ -2,12 +2,12 @@
 
 one:
   name: MyString
-  price: 1
-  description: MyText
-  supplier: one
+  email: MyString
+  email: MyString
+  phone_number: MyString
 
 two:
   name: MyString
-  price: 1
-  description: MyText
-  supplier: one
+  email: MyString
+  email: MyString
+  phone_number: MyString

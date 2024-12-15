@@ -10,10 +10,19 @@ Rails.application.routes.draw do
   post "/sessions" => "sessions#create"
   post "/users" => "users#create"
   delete "/sessions" => "sessions#destroy"
+
   get "/one_product", controller: "products", action: "one_product"
   get "/products" => "products#index"
   get "/products/:id" => "products#show"
   post "/products" => "products#create"
   patch "/products/:id" => "products#update"
   delete "/products/:id" => "products#destroy"
+
+  post "/orders" => "orders#create"
+  get "/orders/:id" => "orders#show"
+  get "/orders" => "orders#index"
+
+  post "/carted_products" => "carted_products#create"
+  get "/carted_products" => "carted_products#index"
+  delete "/carted_products/:id" => "carted_products#destroy"
 end

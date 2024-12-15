@@ -9,6 +9,14 @@ class Product < ApplicationRecord
     price <= 10
   end
 
+  has_many :category_products
+
+  has_many :categories, through: :category_products
+  # def categories
+  #   category_products.map do |category_product|
+  #     Category.find_by(id: category_product.category_id)
+  #   end
+  # end
   def tax
     price * 0.09
   end
@@ -21,6 +29,8 @@ class Product < ApplicationRecord
     price + tax
   end
 
+  has_many :carted_products
+  has_many :orders, through: :carted_products
   belongs_to :supplier
   has_many :images
   # def images

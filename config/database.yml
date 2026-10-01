@@ -78,21 +78,22 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# Rails merges DATABASE_URL automatically only into a single-database config.
+# The generated block below names four databases (primary, cache, queue, cable),
+# so DATABASE_URL was ignored and Rails fell back to a local socket that does not
+# exist inside the container. Reading the variable explicitly, and pointing every
+# role at that same database, keeps the app on the one PostgreSQL instance the
+# hosting plan allows.
 production:
   primary: &primary_production
     <<: *default
-    database: mini_capstone_api_production
-    username: mini_capstone_api
-    password: <%= ENV["MINI_CAPSTONE_API_DATABASE_PASSWORD"] %>
+    url: <%= ENV["DATABASE_URL"] %>
   cache:
     <<: *primary_production
-    database: mini_capstone_api_production_cache
     migrations_paths: db/cache_migrate
   queue:
     <<: *primary_production
-    database: mini_capstone_api_production_queue
     migrations_paths: db/queue_migrate
   cable:
     <<: *primary_production
-    database: mini_capstone_api_production_cable
     migrations_paths: db/cable_migrate

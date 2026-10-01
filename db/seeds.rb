@@ -7,7 +7,7 @@ Supplier.create!(
   [
     { name: "ABC Supplies", email: "contact@abcsupplies.com", phone_number: "555-123-4567" },
     { name: "Tech World", email: "info@techworld.com", phone_number: "555-987-6543" },
-    { name: "Global Goods", email: "support@globalgoods.com", phone_number: "555-555-5555" },
+    { name: "Global Goods", email: "support@globalgoods.com", phone_number: "555-555-5555" }
   ]
 )
 
